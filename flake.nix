@@ -18,11 +18,13 @@
       self,
       nixpkgs,
       utils,
+      rust-overlay,
     }:
     utils.lib.eachDefaultSystem (
       system:
       let
-        pkgs = import nixpkgs { inherit system; };
+        overlays = [ (import rust-overlay) ];
+        pkgs = import nixpkgs { inherit system overlays; };
       in
       {
         devShells.default = import ./Libraries { inherit pkgs; };

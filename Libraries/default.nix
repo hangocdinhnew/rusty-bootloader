@@ -7,7 +7,7 @@ let
     buildDeps = with pkgs; [
         (
           rust-bin.selectLatestNightlyWith (toolchain: toolchain.default.override {
-            extensions = [ "cargo", "clippy", "rust-docs", "rust-std", "rustc", "rustfmt", "rust-src" ];
+            extensions = [ "cargo" "clippy" "rust-docs" "rust-std" "rustc" "rustfmt" "rust-src" ];
             targets = [ "x86_64-unknown-none" ];
           })
         )
